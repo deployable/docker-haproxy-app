@@ -4,6 +4,7 @@
     docker-compose up
     curl http://localhost:9615
 
-The haproxy is intended to have multiple ip's mapped to it for each service
+The haproxy config is intended to use multiple ip's mapped to it, one for each service.
+This isn't configurable in docker-compose or using Docker for Windows or Docker for Mac. 
 . 
 
