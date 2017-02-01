@@ -1,0 +1,61 @@
+version: "2"
+
+services:
+  haproxy:
+    image: dply/haproxy
+    ports:
+     - 9616:9616/tcp
+     - 9617:9617/tcp
+    build:
+      context: haproxy
+    networks:
+      haproxy_test:
+        ipv4_address: 10.100.10.30
+
+  syslog:
+    image: helder/rsyslog
+    networks:
+      haproxy_test:
+        ipv4_address: 10.100.10.40
+    
+  app0:
+    hostname: app0
+    build: 
+      context: app
+    networks:
+     haproxy_test:
+       ipv4_address: 10.100.10.60
+
+  app1:
+    hostname: app1
+    build: 
+      context: app
+    networks:
+     haproxy_test:
+       ipv4_address: 10.100.10.61
+
+  app2:
+    hostname: app2
+    build: 
+      context: app
+    networks:
+     haproxy_test:
+       ipv4_address: 10.100.10.62
+
+  app3:
+    hostname: app3
+    build: 
+      context: app
+    networks:
+     haproxy_test:
+       ipv4_address: 10.100.10.63
+
+networks:
+  haproxy_test:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.100.10.0/24
+        gateway: 10.100.10.1
+
