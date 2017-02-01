@@ -1,4 +1,7 @@
-# HAProxy, syslog and Node.js app running in Docker
+# HAProxy, syslog and Node.js app in Docker
+
+Four instances of a simple Node.js http application fronted by a haproxy instance. 
+Syslog is included as a log endpoint for haproxy. 
 
     git clone https://github.com/deployable/docker-haproxy-app
     docker-compose up
