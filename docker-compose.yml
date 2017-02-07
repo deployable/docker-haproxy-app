@@ -20,7 +20,8 @@ services:
     
   app0:
     hostname: app0
-    build: 
+    image: dply/haproxy_app 
+    build:
       context: app
     networks:
      haproxy_test:
@@ -28,7 +29,8 @@ services:
 
   app1:
     hostname: app1
-    build: 
+    image: dply/haproxy_app 
+    build:
       context: app
     networks:
      haproxy_test:
@@ -36,16 +38,14 @@ services:
 
   app2:
     hostname: app2
-    build: 
-      context: app
+    image: dply/haproxy_app 
     networks:
      haproxy_test:
        ipv4_address: 10.100.10.62
 
   app3:
     hostname: app3
-    build: 
-      context: app
+    image: dply/haproxy_app 
     networks:
      haproxy_test:
        ipv4_address: 10.100.10.63
